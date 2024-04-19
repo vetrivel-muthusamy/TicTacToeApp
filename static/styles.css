@@ -15,18 +15,14 @@ body {
     height: 300px; /* Set a fixed height for the board */
     border: 3px solid #000000; /* Add a border around the board */
     border-radius: 10px; /* Add rounded corners to the board */
-    display: flex; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Allow cells to wrap to the next row */
-    justify-content: space-between; /* Distribute space between cells */
-    align-content: space-between; /* Distribute space between rows */
-    padding: 5px; /* Add padding to create space between cells */
+    display: grid; /* Use grid layout for the board */
+    grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
+    grid-template-rows: repeat(3, 1fr); /* Create 3 equal rows */
 }
 
 /* Individual cells of the game board */
 .cell {
     box-sizing: border-box; /* Include padding and border in the cell's total width and height */
-    width: 30%; /* Set the width of each cell */
-    height: 30%; /* Set the height of each cell */
     background-color: #ffffff; /* Set the background color of each cell */
     border: 1px solid #000000; /* Add a border around each cell */
     font-size: 36px; /* Set the font size of X's and O's */
