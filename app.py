@@ -18,9 +18,9 @@ def make_move():
     row, col = data["row"], data["col"]
     if board[row][col] == " ":
         board[row][col] = current_player
-        if check_winner(current_player):
+        if check_winner(current_player, board):
             return jsonify({"status": "win", "player": current_player})
-        elif check_draw():
+        elif check_draw(board):
             return jsonify({"status": "draw"})
         else:
             current_player = "O" if current_player == "X" else "X"
@@ -46,7 +46,6 @@ def check_winner(player, board):
 
     return False
 
-
 def check_draw(board):
     # Check if any cell is empty
     for row in board:
@@ -55,7 +54,6 @@ def check_draw(board):
                 return False
     # If no cell is empty, the board is full
     return True
-
 
 if __name__ == "__main__":
     app.run(debug=True)
